@@ -22,5 +22,8 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 		bc++;
 	}
+	if (!b)
+		return (0);
+
 	return (con);
 }
