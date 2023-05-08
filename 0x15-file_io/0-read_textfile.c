@@ -20,7 +20,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t Ama;
 
 	Nana = open(filename, O_RDONLY);
-	if (filename == NULL)
+	if (Nana == -1)
 		return (0);
 	Ewura = malloc(sizeof(char) * letters);
 	Ama = read(Nana, Ewura, letters);
