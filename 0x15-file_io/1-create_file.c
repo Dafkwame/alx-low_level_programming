@@ -15,7 +15,7 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int Ewura, Abena, Nana;
+	int Ewura, Abena, Nana = 0;
 
 	if (filename == NULL)
 		return (-1);
@@ -29,7 +29,7 @@ int create_file(const char *filename, char *text_content)
 	Abena = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 	Ewura = write(Abena, text_content, Nana);
 
-	if (Ewura == -1 || Abena == -1)
+	if (Abena == -1 || Ewura == -1)
 		return (-1);
 
 	close(Abena);
