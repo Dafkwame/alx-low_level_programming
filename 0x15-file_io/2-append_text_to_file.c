@@ -28,9 +28,12 @@ int append_text_to_file(const char *filename, char *text_content)
 	}
 
 	Abena = open(filename, O_WRONLY | O_APPEND);
+	if (Abena == -1)
+		return (-1);
+
 	Ewura = write(Abena, text_content, Nana);
 
-	if (Abena == -1 || Ewura == -1)
+	if (Ewura == -1)
 		return (-1);
 
 	close(Abena);
