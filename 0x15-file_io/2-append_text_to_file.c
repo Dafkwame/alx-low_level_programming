@@ -21,21 +21,19 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	if (filename == NULL)
 		return (-1);
+
+	if (text_content != NULL)
+	{
+		for (Nana = 0; text_content[Nana];)
+			Nana++;
+	}
+	
 	Abena = open(filename, O_WRONLY | O_APPEND);
-	if (Abena != -1)
-		return (1);
-
-	if(text_content == NULL)
-		return (-1);
-
-	for (Nana = 0; text_content[Nana]; Nana++)
-		;
-
 	Ewura = write(Abena, text_content, Nana);
 
-	if (Ewura == -1)
+	if (Abena == -1 || Ewura == -1)
 		return (-1);
-
+	
 	close (Abena);
 	return (1);
 }
