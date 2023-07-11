@@ -18,19 +18,21 @@ int append_text_to_file(const char *filename, char *text_content)
 {
 	int e, f, g = 0;
 
-	if (filename == NULL)
+	if (!filename)
+		return (-1);
+	e = open(filename, O_WRONLY | O_APPEND);
+	if (e == -1)
 		return (-1);
 
-	if (text_content != NULL)
+	if (!text_content)
 	{
 		for (g = 0; text_content[g];)
 			g++;
 	}
 
-	e = open(filename, O_WRONLY | O_APPEND);
 	f = write(e, text_content, g);
 
-	if (e == -1 || f == -1)
+	if (f == -1)
 		return (-1);
 
 	close (e);
