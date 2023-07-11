@@ -18,13 +18,13 @@ int append_text_to_file(const char *filename, char *text_content)
 {
 	int e, f, g = 0;
 
-	if (!filename)
+	if (filename == NULL)
 		return (-1);
 	e = open(filename, O_WRONLY | O_APPEND);
 	if (e == -1)
 		return (-1);
 
-	if (!text_content)
+	if (text_content == NULL)
 	{
 		for (g = 0; text_content[g];)
 			g++;
